@@ -1,0 +1,31 @@
+﻿<Window x:Class="SerialCommunicator.Windows.HelpWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SerialCommunicator.Windows"
+        WindowStyle="SingleBorderWindow"
+        Style="{DynamicResource CustomWindowStyle}"
+        mc:Ignorable="d" Closing="Window_Closing"
+        Title="HelpWindow" Height="576" Width="850">
+    <Grid>
+        <ScrollViewer>
+            <StackPanel Margin="10">
+                <TextBlock HorizontalAlignment="Center" Text="Serial Communicator" FontSize="32" TextAlignment="Center"/>
+                <TextBlock HorizontalAlignment="Center" Text="A program made for communicating with serial devices via COM ports." Margin="0 10 0 0" FontSize="24" TextAlignment="Center"/>
+                <TextBlock HorizontalAlignment="Center" Text="There are some shortcuts listed in the menus at the top (e.g. Ctrl+E to connect/disconenct serial port)" Margin="0 10 0 0" TextWrapping="Wrap" FontSize="20" TextAlignment="Center"/>
+                <Separator Margin="5"/>
+                <TextBlock HorizontalAlignment="Center" Text="The list on the left holds [SerialItems], in which an item hold all the information related to a single serial port connection (baudrate, port name, parity, etc)" TextWrapping="Wrap" FontSize="20" TextAlignment="Center"/>
+                <Separator Margin="5"/>
+                <TextBlock HorizontalAlignment="Center" Text="The 2 lists on the middle-right of the screen, obviously hold received and sent messages. these messages are colour coded depending if they're alerts, errors, etc." TextWrapping="Wrap" FontSize="20" TextAlignment="Center"/>
+                <Separator Margin="5"/>
+                <TextBlock HorizontalAlignment="Center" Text="The huge heap of controls at the bottom contorl the serial port (they're all binded to the selected SerialItem as mentioned before)." TextWrapping="Wrap" FontSize="20" TextAlignment="Center"/>
+                <Separator Margin="5"/>
+                <TextBlock HorizontalAlignment="Center" Text="You can save all the sent/received messages to a file by clicking Message Logging > Write Messages to File at the top and specifying a location." TextWrapping="Wrap" FontSize="20" TextAlignment="Center"/>
+                <Separator Margin="5"/>
+                <TextBlock HorizontalAlignment="Center" 
+                           TextWrapping="Wrap" FontSize="20" TextAlignment="Center"><Run Text="The Graph. "/><Run Text="It plots the received messages into a graph. text is parsed as a number using its position in the alphabet. numbers. ..well they get plotted directly."/></TextBlock>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Window>

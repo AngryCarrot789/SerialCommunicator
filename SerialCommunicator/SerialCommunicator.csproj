@@ -1,0 +1,247 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B2E98B60-E90E-46CE-A9E9-BB04D540F6A7}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>SerialCommunicator</RootNamespace>
+    <AssemblyName>SerialCommunicator</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>usbIconIco.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>SerialCommunicator.App</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <OutputPath>bin\Debug\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationFramework.Aero2" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Controls\SerialPortItem.xaml.cs">
+      <DependentUpon>SerialPortItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SerialMessage.xaml.cs">
+      <DependentUpon>SerialMessage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FormattedDataTransceiver\FormattedDataViewModel.cs" />
+    <Compile Include="Graph\DataPoints\DoubleDataPoint.cs" />
+    <Compile Include="Graph\DataPoints\FloatDataPoint.cs" />
+    <Compile Include="Graph\DataPoints\Int32DataPoint.cs" />
+    <Compile Include="Graph\DataPoints\TimeSpanDataPoint.cs" />
+    <Compile Include="Graph\EventArguments\RangeChangedEventArgs.cs" />
+    <Compile Include="Graph\ExtensionMethods.cs" />
+    <Compile Include="Graph\GraphCommand.cs" />
+    <Compile Include="Graph\GraphControl.cs" />
+    <Compile Include="Graph\GraphController.cs" />
+    <Compile Include="Graph\GraphDataPoint.cs" />
+    <Compile Include="Graph\GraphDataPointHelper.cs" />
+    <Compile Include="Graph\GraphDataPointTypeConverter.cs" />
+    <Compile Include="Graph\GraphDataQueue.cs" />
+    <Compile Include="Graph\GraphObject.cs" />
+    <Compile Include="Graph\GraphRange.cs" />
+    <Compile Include="Graph\GraphRenderer.cs" />
+    <Compile Include="Graph\GraphTransform.cs" />
+    <Compile Include="Graph\IGraphComponent.cs" />
+    <Compile Include="Graph\IGraphController.cs" />
+    <Compile Include="Graph\IGraphDataPoint.cs" />
+    <Compile Include="Graph\IGraphDataSeries.cs" />
+    <Compile Include="Graph\IGraphRenderer.cs" />
+    <Compile Include="Graph\IGraphSurface.cs" />
+    <Compile Include="Graph\Renderers\ScrollingLineRenderer.cs" />
+    <Compile Include="Graph\WpfGraphAxisControl.cs" />
+    <Compile Include="Graph\WpfGraphAxisPanel.cs" />
+    <Compile Include="Graph\WpfGraphAxisTickData.cs" />
+    <Compile Include="Graph\WpfGraphComponentBase.cs" />
+    <Compile Include="Graph\WpfGraphController.cs" />
+    <Compile Include="Graph\WpfGraphDataSeries.cs" />
+    <Compile Include="Graph\WpfGraphGridLines.cs" />
+    <Compile Include="Graph\WpfGraphSurface.cs" />
+    <Compile Include="SerialFileLogger\MessageWriter.cs" />
+    <Compile Include="Themes\ColourfulDarkTheme.xaml.cs">
+      <DependentUpon>ColourfulDarkTheme.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Themes\ColourfulLightTheme.xaml.cs">
+      <DependentUpon>ColourfulLightTheme.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Themes\DarkTheme.xaml.cs">
+      <DependentUpon>DarkTheme.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Themes\LightTheme.xaml.cs">
+      <DependentUpon>LightTheme.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Themes\ThemesController.cs" />
+    <Compile Include="Utilities\AnimationLib.cs" />
+    <Compile Include="Utilities\BaseViewModel.cs" />
+    <Compile Include="Utilities\CharAlphabeticalPositions.cs" />
+    <Compile Include="Utilities\Command.cs" />
+    <Compile Include="Utilities\CommandParam.cs" />
+    <Compile Include="Utilities\GlobalSettings.cs" />
+    <Compile Include="Utilities\InverseBooleanConverter.cs" />
+    <Compile Include="Utilities\ObjectNullToControlEnabledConverter.cs" />
+    <Compile Include="ViewModels\GraphViewModel.cs" />
+    <Compile Include="ViewModels\HelpViewModel.cs" />
+    <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="ViewModels\SerialPortItemViewModel.cs" />
+    <Compile Include="ViewModels\SerialMessageItemViewModel.cs" />
+    <Compile Include="ViewModels\SerialMessageViewModel.cs" />
+    <Compile Include="ViewModels\SerialViewModel.cs" />
+    <Compile Include="ViewModels\TransceiveSettingsViewModel.cs" />
+    <Compile Include="Windows\DataFormatTransceiverWindow.xaml.cs">
+      <DependentUpon>DataFormatTransceiverWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\DebugWindow.xaml.cs">
+      <DependentUpon>DebugWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\GraphWindow.xaml.cs">
+      <DependentUpon>GraphWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\HelpWindow.xaml.cs">
+      <DependentUpon>HelpWindow.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Controls\SerialPortItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\SerialMessage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Themes\ColourfulDarkTheme.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\ColourfulLightTheme.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\DarkTheme.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\GraphStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\LightTheme.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\DataFormatTransceiverWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\DebugWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\GraphWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\HelpWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\usbIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\usbIconIco.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="usbIconIco.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\removeIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\writeFileIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\refreshIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\connectIcon.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

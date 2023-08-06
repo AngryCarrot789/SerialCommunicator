@@ -1,0 +1,22 @@
+﻿<UserControl x:Class="SerialCommunicator.Controls.SerialMessage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             Margin="0" Padding="0" d:DesignWidth="100"
+             xmlns:local="clr-namespace:SerialCommunicator.Controls" 
+             xmlns:viewmodels="clr-namespace:SerialCommunicator.ViewModels"
+             mc:Ignorable="d" 
+             ToolTip="{Binding Message.Time, UpdateSourceTrigger=PropertyChanged, StringFormat='hh:mm:ss tt'}" 
+             Foreground="{DynamicResource ControlDefaultForeground}">
+    <Grid Background="{Binding Path=Background, UpdateSourceTrigger=PropertyChanged}">
+        <TextBlock Text="{Binding Message.RXorTX, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="2,0" Width="35" DockPanel.Dock="Left" TextTrimming="None"/>
+        <TextBlock Text=">" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="37,0,0,2" Width="8" TextAlignment="Center" TextTrimming="None"/>
+        <TextBox Text="{Binding Message.Message, UpdateSourceTrigger=PropertyChanged}"
+                 TextWrapping="Wrap"
+                 Background="Transparent"
+                 BorderThickness="0 0 0 1"
+                 IsReadOnly="True"
+                 Padding="1" Margin="45,2,2,2"/>
+    </Grid>
+</UserControl>
